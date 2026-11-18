@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(ellipse at 18% 18%, rgba(96, 165, 250, 0.3), transparent 34%),
+        radial-gradient(ellipse at 84% 82%, rgba(167, 139, 250, 0.24), transparent 38%),
+        #0f172a;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    width: min(100%, 360px);
+    padding: 26px;
+    background: linear-gradient(145deg, #1e293b, #172033);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow:
+        0 28px 60px rgba(0, 0, 0, 0.4),
+        0 8px 18px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+    color: #f8fafc;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    letter-spacing: 0.04em;
+}
+
+#display {
+    width: 100%;
+    height: 72px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    outline: none;
+    background: #0b1220;
+    color: #f8fafc;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.38);
+    font-size: 30px;
+    text-align: right;
+}
+
+#display::placeholder {
+    color: #64748b;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+button {
+    height: 58px;
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    border-radius: 13px;
+    background: linear-gradient(180deg, #f8fafc, #cbd5e1);
+    color: #172554;
+    box-shadow:
+        0 5px 0 #94a3b8,
+        0 8px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 110ms ease, box-shadow 110ms ease, filter 110ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow:
+        0 7px 0 #94a3b8,
+        0 11px 16px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+button:active {
+    filter: brightness(0.98);
+    transform: translateY(4px);
+    box-shadow:
+        0 1px 0 #94a3b8,
+        0 3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+button:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 3px;
+}
+
+.operator {
+    border-color: rgba(191, 219, 254, 0.6);
+    background: linear-gradient(180deg, #bfdbfe, #60a5fa);
+    color: #102a56;
+    box-shadow:
+        0 5px 0 #3b82c4,
+        0 8px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.operator:hover {
+    box-shadow:
+        0 7px 0 #3b82c4,
+        0 11px 16px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.operator:active {
+    box-shadow:
+        0 1px 0 #3b82c4,
+        0 3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.clear {
+    border-color: rgba(254, 202, 202, 0.6);
+    background: linear-gradient(180deg, #fecaca, #f87171);
+    color: #7f1d1d;
+    box-shadow:
+        0 5px 0 #dc5a5a,
+        0 8px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.clear:hover {
+    box-shadow:
+        0 7px 0 #dc5a5a,
+        0 11px 16px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.clear:active {
+    box-shadow:
+        0 1px 0 #dc5a5a,
+        0 3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.equal {
+    grid-row: span 2;
+    height: auto;
+    border-color: rgba(147, 197, 253, 0.65);
+    background: linear-gradient(180deg, #60a5fa, #2563eb);
+    color: white;
+    box-shadow:
+        0 5px 0 #1d4ed8,
+        0 8px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.equal:hover {
+    box-shadow:
+        0 7px 0 #1d4ed8,
+        0 11px 16px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.equal:active {
+    box-shadow:
+        0 1px 0 #1d4ed8,
+        0 3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        padding: 20px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    button {
+        height: 54px;
+    }
+
+    .equal {
+        height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}
